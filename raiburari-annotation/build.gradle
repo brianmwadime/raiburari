@@ -16,13 +16,13 @@
 
 apply plugin: 'java'
 apply plugin: 'checkstyle'
-apply plugin: 'com.github.dcendents.android-maven'
-apply plugin: 'com.jfrog.bintray'
+//apply plugin: 'com.github.dcendents.android-maven'
+//apply plugin: 'com.jfrog.bintray'
 apply plugin: 'com.jfrog.artifactory'
 apply plugin: 'maven-publish'
 
-sourceCompatibility = JavaVersion.VERSION_1_7
-targetCompatibility = JavaVersion.VERSION_1_7
+sourceCompatibility = JavaVersion.VERSION_17
+targetCompatibility = JavaVersion.VERSION_17
 
 checkstyle {
   configFile rootProject.file('config/checkstyle.xml')
@@ -38,5 +38,5 @@ ext {
 }
 
 // Upload artifact to bintray repo
-apply from: '../config/bintray-upload.gradle'
+//apply from: '../config/bintray-upload.gradle'
 

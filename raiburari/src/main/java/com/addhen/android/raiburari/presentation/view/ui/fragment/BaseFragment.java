@@ -17,9 +17,6 @@
 package com.addhen.android.raiburari.presentation.view.ui.fragment;
 
 import android.os.Bundle;
-import android.support.annotation.StringRes;
-import android.support.design.widget.Snackbar;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -27,12 +24,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
 import android.widget.Toast;
-import butterknife.ButterKnife;
-import butterknife.Unbinder;
 import com.addhen.android.raiburari.presentation.di.HasComponent;
+import com.google.android.material.snackbar.Snackbar;
 
 import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
+
+import androidx.annotation.StringRes;
+import androidx.fragment.app.Fragment;
 
 /**
  * Base {@link android.app.Fragment} class that every Fragment in this app will have to implement.
@@ -51,8 +50,6 @@ public abstract class BaseFragment extends Fragment {
    */
   protected final int mMenu;
 
-  protected Unbinder mUnbinder;
-
   /**
    * BaseFragment
    *
@@ -69,13 +66,12 @@ public abstract class BaseFragment extends Fragment {
     if (mLayout != 0) {
       root = inflater.inflate(mLayout, container, false);
     }
-    injectViews(root);
+
     return root;
   }
 
   @Override public void onDestroyView() {
     super.onDestroyView();
-    mUnbinder.unbind();
   }
 
   @Override public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
@@ -137,16 +133,6 @@ public abstract class BaseFragment extends Fragment {
    */
   @SuppressWarnings("unchecked") protected <C> C getComponent(Class<C> componentType) {
     return componentType.cast(((HasComponent<C>) getActivity()).getComponent());
-  }
-
-  /**
-   * Replace every field annotated with ButterKnife annotations like @InjectView with the proper
-   * value.
-   *
-   * @param view to extract each widget injected in the fragment.
-   */
-  private void injectViews(final View view) {
-    mUnbinder = ButterKnife.bind(this, view);
   }
 
   /**

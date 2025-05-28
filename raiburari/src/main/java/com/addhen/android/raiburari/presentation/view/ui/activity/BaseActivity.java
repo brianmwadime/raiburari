@@ -17,25 +17,24 @@
 package com.addhen.android.raiburari.presentation.view.ui.activity;
 
 import android.os.Bundle;
-import android.support.annotation.StringRes;
-import android.support.design.widget.Snackbar;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.AnimationUtils;
 import android.widget.Toast;
-import butterknife.ButterKnife;
-import butterknife.Unbinder;
 import com.addhen.android.raiburari.presentation.BaseApplication;
 import com.addhen.android.raiburari.presentation.di.component.ApplicationComponent;
 import com.addhen.android.raiburari.presentation.di.module.ActivityModule;
+import com.google.android.material.snackbar.Snackbar;
 
 import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
+
+import androidx.annotation.StringRes;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 /**
  * Base {@link AppCompatActivity} class that all classes that wants to extend {@link
@@ -57,8 +56,6 @@ public abstract class BaseActivity extends AppCompatActivity {
    */
   protected final int mMenu;
 
-  protected Unbinder mUnbinder;
-
   private ActionBar mActionBarToolbar;
 
   public BaseActivity(int layout, int menu) {
@@ -71,7 +68,6 @@ public abstract class BaseActivity extends AppCompatActivity {
     getApplicationComponent().inject(this);
     if (mLayout != 0) {
       setContentView(mLayout);
-      injectViews();
     }
 
     mActionBarToolbar = getSupportActionBar();
@@ -83,7 +79,6 @@ public abstract class BaseActivity extends AppCompatActivity {
 
   public void onDestroy() {
     super.onDestroy();
-    mUnbinder.unbind();
   }
 
   protected void setActionBarTitle(String title) {
@@ -192,14 +187,6 @@ public abstract class BaseActivity extends AppCompatActivity {
       }
     }
     return view;
-  }
-
-  /**
-   * Initializes {@link ButterKnife} so you can use it to replace every field annotated with
-   * ButterKnife annotations like @InjectView with the proper value.
-   */
-  private void injectViews() {
-    mUnbinder = ButterKnife.bind(this);
   }
 
   /**

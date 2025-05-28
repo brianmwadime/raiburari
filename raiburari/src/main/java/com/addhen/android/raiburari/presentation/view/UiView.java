@@ -21,7 +21,7 @@ package com.addhen.android.raiburari.presentation.view;
  */
 
 import android.content.Context;
-import android.support.annotation.UiThread;
+import androidx.annotation.UiThread;
 
 /**
  * Implement this interface to show error messages to the activity at implements it.

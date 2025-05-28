@@ -16,12 +16,14 @@
 
 package com.addhen.android.raiburari.sample.app.presentation.view.ui.adapter;
 
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
+
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.addhen.android.raiburari.presentation.view.ui.adapter.BaseRecyclerViewAdapter;
 import com.addhen.android.raiburari.sample.app.R;
 import com.addhen.android.raiburari.sample.app.presentation.model.UserModel;

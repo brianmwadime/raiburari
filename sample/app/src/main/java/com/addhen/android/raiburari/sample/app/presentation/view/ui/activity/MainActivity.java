@@ -17,38 +17,40 @@
 package com.addhen.android.raiburari.sample.app.presentation.view.ui.activity;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.NavigationView;
-import android.support.design.widget.Snackbar;
-import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.view.ViewPager;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBar;
-import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
-import butterknife.BindView;
+
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.viewpager.widget.ViewPager;
+
 import com.addhen.android.raiburari.presentation.di.HasComponent;
 import com.addhen.android.raiburari.presentation.view.ui.activity.BaseActivity;
 import com.addhen.android.raiburari.sample.app.R;
 import com.addhen.android.raiburari.sample.app.presentation.di.components.DaggerUserComponent;
 import com.addhen.android.raiburari.sample.app.presentation.di.components.UserComponent;
 import com.addhen.android.raiburari.sample.app.presentation.view.ui.fragment.MainFragment;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.snackbar.Snackbar;
+import com.google.android.material.tabs.TabLayout;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends BaseActivity implements HasComponent<UserComponent> {
 
-  @BindView(R.id.toolbar) Toolbar mToolbar;
-  @BindView(R.id.drawer_layout) DrawerLayout mDrawerLayout;
-  @BindView((R.id.nav_view)) NavigationView mNavigationView;
-  @BindView(R.id.viewpager) ViewPager viewPager;
-  @BindView(R.id.fab) FloatingActionButton fab;
-  @BindView(R.id.tabs) TabLayout mTabLayout;
+  Toolbar mToolbar;
+  DrawerLayout mDrawerLayout;
+  NavigationView mNavigationView;
+  ViewPager viewPager;
+  FloatingActionButton fab;
+  TabLayout mTabLayout;
   private UserComponent userComponent;
 
   public MainActivity() {
@@ -68,6 +70,13 @@ public class MainActivity extends BaseActivity implements HasComponent<UserCompo
       ab.setHomeAsUpIndicator(R.drawable.ic_menu);
       ab.setDisplayHomeAsUpEnabled(true);
     }
+
+    mDrawerLayout = findViewById(R.id.drawer_layout);
+    mNavigationView = findViewById(R.id.nav_view);
+    viewPager = findViewById(R.id.viewpager);
+    fab = findViewById(R.id.fab);
+    mTabLayout = findViewById(R.id.tabs);
+    mToolbar = findViewById(R.id.toolbar);
 
     if (mNavigationView != null) {
       setupDrawerContent(mNavigationView);

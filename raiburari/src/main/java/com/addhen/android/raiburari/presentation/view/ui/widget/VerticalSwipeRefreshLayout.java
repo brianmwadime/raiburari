@@ -17,10 +17,11 @@
 package com.addhen.android.raiburari.presentation.view.ui.widget;
 
 import android.content.Context;
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.ViewConfiguration;
+
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 /**
  * Provides support for vertical swipe to refresh

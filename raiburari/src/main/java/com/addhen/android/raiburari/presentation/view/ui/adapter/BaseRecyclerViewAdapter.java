@@ -16,9 +16,11 @@
 
 package com.addhen.android.raiburari.presentation.view.ui.adapter;
 
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.addhen.android.raiburari.presentation.model.Model;
 import com.addhen.android.raiburari.presentation.view.ui.widget.BloatedRecyclerView;
 import java.util.ArrayList;

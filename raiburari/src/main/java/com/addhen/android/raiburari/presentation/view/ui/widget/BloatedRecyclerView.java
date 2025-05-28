@@ -23,12 +23,6 @@ import android.graphics.Rect;
 import android.os.Build;
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.DividerItemDecoration;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.util.SparseIntArray;
@@ -40,13 +34,21 @@ import android.view.ViewStub;
 import android.view.animation.TranslateAnimation;
 import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
+
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
 import com.addhen.android.raiburari.R;
 import com.addhen.android.raiburari.presentation.view.ui.adapter.BaseRecyclerViewAdapter;
 import com.addhen.android.raiburari.presentation.view.ui.listener.ObservableScrollState;
 import com.addhen.android.raiburari.presentation.view.ui.listener.ObservableScrollViewListener;
 
 /**
- * This extends the base {@link android.support.v7.widget.RecyclerView} to encapsulate endless
+ * This extends the base {@link RecyclerView} to encapsulate endless
  * scroll, pluggable animations, item decorators, FAB and Parallax effect
  *
  * @author Henry Addo
@@ -474,7 +476,7 @@ import com.addhen.android.raiburari.presentation.view.ui.listener.ObservableScro
    * Gets the current ItemAnimator for this RecyclerView. A null return value
    * indicates that there is no animator and that item changes will happen without
    * any animations. By default, RecyclerView instantiates and
-   * uses an instance of {@link android.support.v7.widget.DefaultItemAnimator}.
+   * uses an instance of {@link DefaultItemAnimator}.
    *
    * @return ItemAnimator The current ItemAnimator. If null, no animations will occur
    * when changes occur to the items in this RecyclerView.
@@ -486,11 +488,11 @@ import com.addhen.android.raiburari.presentation.view.ui.listener.ObservableScro
   /**
    * Sets the {@link RecyclerView.ItemAnimator} that will handle animations involving changes
    * to the items in this RecyclerView. By default, RecyclerView instantiates and
-   * uses an instance of {@link android.support.v7.widget.DefaultItemAnimator}. Whether item
+   * uses an instance of {@link DefaultItemAnimator}. Whether item
    * animations are
    * enabled for the RecyclerView depends on the ItemAnimator and whether
    * the LayoutManager
-   * {@link android.support.v7.widget.RecyclerView.LayoutManager#supportsPredictiveItemAnimations()
+   * {@link RecyclerView.LayoutManager#supportsPredictiveItemAnimations()
    * supports item animations}.
    *
    * @param animator The ItemAnimator being set. If null, no animations will occur

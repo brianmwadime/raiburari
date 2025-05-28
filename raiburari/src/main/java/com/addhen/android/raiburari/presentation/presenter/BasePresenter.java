@@ -16,8 +16,9 @@
 
 package com.addhen.android.raiburari.presentation.presenter;
 
-import android.support.annotation.Nullable;
-import android.support.annotation.UiThread;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.UiThread;
 import com.addhen.android.raiburari.presentation.view.UiView;
 import java.lang.ref.WeakReference;
 
@@ -46,7 +47,8 @@ public class BasePresenter<V extends UiView> implements Presenter<V> {
    *
    * @return <code>null</code>, if view is not attached, otherwise the concrete view instance
    */
-  @UiThread @Nullable public V getView() {
+  @UiThread @Nullable
+  public V getView() {
     return mViewRef == null ? null : mViewRef.get();
   }
 

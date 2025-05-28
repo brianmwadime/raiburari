@@ -15,12 +15,12 @@
  */
 
 apply plugin: 'com.android.library'
-apply plugin: 'com.jakewharton.butterknife'
-apply plugin: 'com.github.dcendents.android-maven'
-apply plugin: 'com.jfrog.bintray'
+//apply plugin: 'com.jakewharton.butterknife'
+//apply plugin: 'com.github.dcendents.android-maven'
+//apply plugin: 'com.jfrog.bintray'
 apply plugin: 'com.jfrog.artifactory'
 apply plugin: 'maven-publish'
-apply plugin: 'com.noveogroup.android.check'
+//apply plugin: 'com.noveogroup.android.check'
 
 def globalConfiguration = rootProject.extensions.getByName("ext")
 
@@ -28,7 +28,7 @@ def libVersion = globalConfiguration.getAt("androidVersionName")
 
 
 android {
-
+    namespace = "com.addhen.android.raiburari"
     compileSdkVersion globalConfiguration.getAt("androidCompileSdkVersion")
     buildToolsVersion globalConfiguration.getAt("androidBuildToolsVersion")
 
@@ -64,25 +64,26 @@ android {
         }
     }
 
-    check {
-        abortOnError true
-    }
+//    check {
+//        abortOnError true
+//    }
 }
 
 dependencies {
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
     def appDependencies = rootProject.ext.appDependencies
     annotationProcessor appDependencies.daggerCompiler
-    annotationProcessor appDependencies.butterKnifeComplier
-    compile appDependencies.dagger
-    compile appDependencies.design
-    compile appDependencies.cardView
-    compile appDependencies.recyclerView
-    compile appDependencies.butterKnife
-    compile appDependencies.rxAndroid
-    compile appDependencies.rxJava
+    implementation appDependencies.dagger
+//    implementation appDependencies.design
+//    implementation appDependencies.cardView
+//    implementation appDependencies.recyclerView
+    implementation appDependencies.rxAndroid
+    implementation appDependencies.rxJava
+    implementation appDependencies.androidX
+    implementation appDependencies.material
 
     // Data dependencies
-    provided appDependencies.javaxAnnotation
+    implementation appDependencies.javaxAnnotation
 }
 
 ext {
@@ -92,4 +93,4 @@ ext {
 }
 
 // Upload artifact to bintray repo
-apply from: '../config/bintray-upload.gradle'
+//apply from: '../config/bintray-upload.gradle'

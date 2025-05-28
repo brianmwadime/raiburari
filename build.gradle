@@ -19,26 +19,25 @@ apply from: 'config/dependencies.gradle'
 buildscript {
     repositories {
         jcenter()
+        mavenCentral()
+        google()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.3.0-rc1'
-        classpath 'com.github.dcendents:android-maven-gradle-plugin:1.5'
-        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7.3'
-        classpath('com.noveogroup.android:check:1.2.3') {
-            exclude module: 'checkstyle'
-        }
-        classpath 'com.puppycrawl.tools:checkstyle:7.3'
-        classpath 'com.jakewharton:butterknife-gradle-plugin:8.2.1'
+        classpath 'com.android.tools.build:gradle:8.10.0'
+//        classpath 'com.github.dcendents:android-maven-gradle-plugin:2.1'
+//        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.+'
+        classpath 'com.puppycrawl.tools:checkstyle:10.14.2'
+//        classpath 'com.jakewharton:butterknife-gradle-plugin:8.2.1'
         // Check for the latest version here: http://plugins.gradle.org/plugin/com.jfrog.artifactory
         // Needed to publish SNAPSHOTs to JFrog
-        classpath 'org.jfrog.buildinfo:build-info-extractor-gradle:4.4.13'
+        classpath 'org.jfrog.buildinfo:build-info-extractor-gradle:5.1.1'
     }
 }
 
-task wrapper(type: Wrapper) {
-    description 'Creates the gradle wrapper.'
-    gradleVersion '3.4'
-}
+//task wrapper(type: Wrapper) {
+//    description 'Creates the gradle wrapper.'
+//    gradleVersion '3.4'
+//}
 
 allprojects {
     ext {
@@ -49,6 +48,10 @@ allprojects {
 
     repositories {
         jcenter()
-        maven { url "http://oss.sonatype.org/content/repositories/snapshots/" }
+        maven {
+            url "http://oss.sonatype.org/content/repositories/snapshots/"
+            allowInsecureProtocol = true
+        }
+        google()
     }
 }

@@ -18,8 +18,9 @@ package com.addhen.android.raiburari.data.pref;
 
 import android.annotation.SuppressLint;
 import android.content.SharedPreferences;
-import android.support.annotation.NonNull;
 import javax.inject.Inject;
+
+import androidx.annotation.NonNull;
 
 /**
  * Preference for saving Long values

@@ -16,16 +16,16 @@
 
 apply plugin: 'java'
 
-sourceCompatibility = JavaVersion.VERSION_1_7
-targetCompatibility = JavaVersion.VERSION_1_7
+sourceCompatibility = JavaVersion.VERSION_17
+targetCompatibility = JavaVersion.VERSION_17
 
 dependencies {
-  compile project(':raiburari-annotation');
-  compile project(':raiburari-processor');
+  implementation(project(':raiburari-annotation'))
+  implementation(project(':raiburari-processor'))
 
   def appTestDependencies = rootProject.ext.appTestDependencies
   def appDependencies = rootProject.ext.appDependencies
 
-  testCompile appTestDependencies.junit
-  testCompile appTestDependencies.googleTruth
+  testImplementation appTestDependencies.junit
+  testImplementation appTestDependencies.googleTruth
 }

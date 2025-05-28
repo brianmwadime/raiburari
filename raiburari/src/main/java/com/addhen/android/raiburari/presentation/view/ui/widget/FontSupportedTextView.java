@@ -20,9 +20,11 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Paint;
 import android.graphics.Typeface;
-import android.support.v4.util.LruCache;
-import android.support.v7.widget.AppCompatTextView;
 import android.util.AttributeSet;
+
+import androidx.appcompat.widget.AppCompatTextView;
+import androidx.collection.LruCache;
+
 import com.addhen.android.raiburari.R;
 
 /**

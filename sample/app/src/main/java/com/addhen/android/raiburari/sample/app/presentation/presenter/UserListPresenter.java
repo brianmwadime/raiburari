@@ -16,7 +16,8 @@
 
 package com.addhen.android.raiburari.sample.app.presentation.presenter;
 
-import android.support.annotation.UiThread;
+import androidx.annotation.UiThread;
+
 import com.addhen.android.raiburari.domain.exception.DefaultErrorHandler;
 import com.addhen.android.raiburari.domain.exception.ErrorHandler;
 import com.addhen.android.raiburari.domain.usecase.DefaultSubscriber;
@@ -31,6 +32,7 @@ import com.addhen.android.raiburari.sample.app.presentation.model.mapper.UserMod
 import com.addhen.android.raiburari.sample.app.presentation.view.UserListView;
 import java.util.Collection;
 import java.util.List;
+
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -50,7 +52,8 @@ import javax.inject.Named;
     this.userModelDataMapper = userModelDataMapper;
   }
 
-  @UiThread public void resume() {
+  @UiThread
+  public void resume() {
     initialize();
   }
 

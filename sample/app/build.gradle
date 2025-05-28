@@ -16,13 +16,13 @@
 apply plugin: 'com.android.application'
 
 android {
-  compileSdkVersion 25
-  buildToolsVersion '25.0.2'
+  namespace = "com.addhen.android.raiburari.sample.app"
+  compileSdkVersion 35
 
   defaultConfig {
     applicationId "com.addhen.raiburari.sample.app"
-    minSdkVersion 9
-    targetSdkVersion 25
+    minSdkVersion 21
+    targetSdkVersion 35
     versionCode 1
     versionName "1.0"
   }
@@ -36,14 +36,28 @@ android {
   lintOptions {
     abortOnError false
   }
+
+  buildFeatures {
+    buildConfig = true
+    compose = true
+    viewBinding = true
+  }
 }
 
 dependencies {
-  compile project(':raiburari-annotation');
-  compile project(':raiburari-processor');
-  compile project(':raiburari')
-  annotationProcessor appDependencies.butterKnifeComplier
+  implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
+  implementation 'androidx.coordinatorlayout:coordinatorlayout:1.3.0'
+  def appDependencies = rootProject.ext.appDependencies
+
+  implementation(project(':raiburari-annotation'));
+  implementation(project(':raiburari-processor'));
+  implementation(project(':raiburari'))
   annotationProcessor appDependencies.daggerCompiler
   annotationProcessor project(':raiburari-processor')
-  provided appDependencies.javaxAnnotation
+  implementation appDependencies.androidX
+  implementation appDependencies.material
+  implementation appDependencies.javaxAnnotation
+  implementation appDependencies.rxAndroid
+  implementation appDependencies.rxJava
+  implementation appDependencies.dagger
 }

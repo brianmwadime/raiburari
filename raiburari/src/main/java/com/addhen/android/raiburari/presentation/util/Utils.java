@@ -29,6 +29,9 @@ import android.text.TextUtils;
 import android.view.Display;
 import android.view.View;
 import android.view.WindowManager;
+
+import androidx.annotation.ChecksSdkIntAtLeast;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -53,34 +56,41 @@ public final class Utils {
     // No instance allowed
   }
 
+  @ChecksSdkIntAtLeast(api = Build.VERSION_CODES.KITKAT)
   public static boolean isKitKatOrHigher() {
     return Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT;
   }
 
+  @ChecksSdkIntAtLeast(api = Build.VERSION_CODES.JELLY_BEAN_MR1)
   public static boolean isJellyBeanMR1OrHigher() {
     return Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1;
   }
 
+  @ChecksSdkIntAtLeast(api = Build.VERSION_CODES.JELLY_BEAN)
   public static boolean isJellyBeanOrHigher() {
     return Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN;
   }
 
+  @ChecksSdkIntAtLeast(api = Build.VERSION_CODES.ICE_CREAM_SANDWICH)
   public static boolean isICSOrHigher() {
     return Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH;
   }
 
+  @ChecksSdkIntAtLeast(api = Build.VERSION_CODES.HONEYCOMB)
   public static boolean isHoneycombOrHigher() {
     return Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB;
   }
 
+  @ChecksSdkIntAtLeast(api = Build.VERSION_CODES.GINGERBREAD)
   public static boolean isGingerbreadOrHigher() {
-    return Build.VERSION.SDK_INT >= Build.VERSION_CODES.GINGERBREAD;
+    return true;
   }
 
   public static boolean isGoogleTV(Context context) {
     return context.getPackageManager().hasSystemFeature("com.google.android.tv");
   }
 
+  @ChecksSdkIntAtLeast(api = Build.VERSION_CODES.LOLLIPOP)
   public static boolean isLollipopOrHigher() {
     // Hardcode lollipop version number because devices lower that lollipop don't have
     // the lollipop's version number

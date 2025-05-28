@@ -16,7 +16,7 @@
 
 package com.addhen.android.raiburari.presentation.presenter;
 
-import android.support.annotation.UiThread;
+import androidx.annotation.UiThread;
 import com.addhen.android.raiburari.presentation.view.UiView;
 
 /**

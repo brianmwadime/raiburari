@@ -18,13 +18,14 @@ package com.addhen.android.raiburari.sample.app.presentation.view.ui.fragment;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.RecyclerView;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ProgressBar;
-import butterknife.BindView;
+
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
 import com.addhen.android.raiburari.presentation.view.ui.fragment.BaseRecyclerViewFragment;
 import com.addhen.android.raiburari.presentation.view.ui.listener.RecyclerViewItemTouchListenerAdapter;
 import com.addhen.android.raiburari.presentation.view.ui.widget.BloatedRecyclerView;
@@ -37,6 +38,7 @@ import com.addhen.android.raiburari.sample.app.presentation.view.ui.adapter.User
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+
 import javax.inject.Inject;
 
 /**
@@ -46,8 +48,9 @@ public class MainFragment extends BaseRecyclerViewFragment<UserModel, UserAdapte
     implements UserListView, RecyclerViewItemTouchListenerAdapter.RecyclerViewOnItemClickListener {
 
   private static MainFragment mMainFragment;
-  @Inject UserListPresenter userListPresenter;
-  @BindView(R.id.user_progressbar) ProgressBar mProgressBar;
+  @Inject
+  UserListPresenter userListPresenter;
+//  @BindView(R.id.user_progressbar) ProgressBar mProgressBar;
 
   /**
    * BaseFragment

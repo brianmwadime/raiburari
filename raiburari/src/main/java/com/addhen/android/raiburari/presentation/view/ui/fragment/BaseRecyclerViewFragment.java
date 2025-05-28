@@ -17,12 +17,14 @@
 package com.addhen.android.raiburari.presentation.view.ui.fragment;
 
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
 import android.util.Log;
 import android.view.InflateException;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.recyclerview.widget.LinearLayoutManager;
+
 import com.addhen.android.raiburari.presentation.model.Model;
 import com.addhen.android.raiburari.presentation.view.ui.adapter.BaseRecyclerViewAdapter;
 import com.addhen.android.raiburari.presentation.view.ui.widget.BloatedRecyclerView;

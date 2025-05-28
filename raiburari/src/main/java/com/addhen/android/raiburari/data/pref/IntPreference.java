@@ -18,7 +18,9 @@ package com.addhen.android.raiburari.data.pref;
 
 import android.annotation.SuppressLint;
 import android.content.SharedPreferences;
-import android.support.annotation.NonNull;
+
+import androidx.annotation.NonNull;
+
 import javax.inject.Inject;
 
 /**
